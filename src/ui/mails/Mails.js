@@ -78,17 +78,10 @@ class Mails extends React.Component {
                             Header: 'content',
                             id: 'content',
                             style: { 'whiteSpace': 'unset' },
-                            accessor: mail => mail.content,
-                            Cell: cellData => (cellData.value.map((value, index) => {
-                                return (
-                                    <div key={index}>
-                                        <b>{value.type}</b><br />
-                                        <div dangerouslySetInnerHTML={{
-                                            __html: value.value,
-                                        }} />
-                                    </div>
-                                );
-                            }))
+                            accessor: mail => mail.personalizations[0].dynamic_template_data,
+                            Cell: cellData => (
+                                JSON.stringify(cellData.value)
+                            )
                         }
                     ]
                 }]}
