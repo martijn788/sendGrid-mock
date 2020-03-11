@@ -78,7 +78,7 @@ class Mails extends React.Component {
                             Header: 'content',
                             id: 'content',
                             style: { 'whiteSpace': 'unset' },
-                            accessor: mail => mail.content,
+                            accessor: mail => mail.personalizations.dynamic_template_data,
                             Cell: cellData => (cellData.value.map((value, index) => {
                                 return (
                                     <div key={index}>
